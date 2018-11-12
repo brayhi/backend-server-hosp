@@ -5,6 +5,7 @@ const appRoutes = require('./routes/index');
 const usuarioRoutes = require('./routes/usuario');
 const loginRoutes = require('./routes/login');
 const bodyParser = require('body-parser');
+const hospRoutes = require('./routes/hospital');
 //Inicializar variables;
 
 const app = express();
@@ -31,7 +32,7 @@ mongoose.connect('mongodb://localhost:27017/hospitalDB', (err, res) => {
 app.use('/', appRoutes);
 app.use('/usuario', usuarioRoutes);
 app.use('/login', loginRoutes);
-
+app.use('/hospital', hospRoutes);
 //Escuchar peticiones
 
 app.listen(3000, () => {
